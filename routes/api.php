@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ReleaseController;
 
+// https://apigestorfinanc.herokuapp.com/
 Route::controller(UserController::class)->prefix('user')->group(function () {
     Route::get('getAll', 'index');
     Route::get('search/{usename}/{password}', 'search');
