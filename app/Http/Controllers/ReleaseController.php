@@ -11,15 +11,14 @@ class ReleaseController extends Controller
     public function index()
     {
         $selects = [
-            'gilvan_santos.user_releases.*',
-            'gilvan_santos.users.username',
-            'gilvan_santos.transactions.value', 'gilvan_santos.transactions.description'
+            'oliveira_gabriel.user_releases.*',
+            'oliveira_gabriel.users.username',
+            'oliveira_gabriel.transactions.value', 'oliveira_gabriel.transactions.description'
         ];
         $release = Release::select($selects)
-            ->join('gilvan_santos.users', 'gilvan_santos.users.id', '=', 'gilvan_santos.user_releases.user_id')
-            ->join('gilvan_santos.transactions', 'gilvan_santos.transactions.id', '=', 'gilvan_santos.user_releases.transaction_id')
+            ->join('oliveira_gabriel.users', 'oliveira_gabriel.users.id', '=', 'oliveira_gabriel.user_releases.user_id')
+            ->join('oliveira_gabriel.transactions', 'oliveira_gabriel.transactions.id', '=', 'oliveira_gabriel.user_releases.transaction_id')
             ->get();
-
 
         return response()->json([
             'status' => true,
